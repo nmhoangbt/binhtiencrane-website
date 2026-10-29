@@ -421,3 +421,4 @@ table.org td:first-child{white-space:nowrap}
 .locmap h3 svg{width:20px;height:20px;color:var(--red,#d71920)}
 .locmap>p{color:var(--steel-700);margin-bottom:12px}
 .locmap .maplinks{margin-top:12px}
+.locmap>p svg{width:15px;height:15px;vertical-align:-2px;color:var(--red)}

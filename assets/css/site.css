@@ -415,3 +415,9 @@ table.ftable td:last-child{text-align:left;color:var(--steel-700)}table.ftable t
 table.org td{vertical-align:top}
 table.org td:first-child{white-space:nowrap}
 @media (max-width:560px){.gal.g4 button:first-child{grid-column:auto;aspect-ratio:4/3}}
+/* contact: office & workshop maps */
+.locmap{margin-top:28px}
+.locmap h3{display:flex;align-items:center;gap:8px;font-size:22px;text-transform:uppercase;margin-bottom:4px}
+.locmap h3 svg{width:20px;height:20px;color:var(--red,#d71920)}
+.locmap>p{color:var(--steel-700);margin-bottom:12px}
+.locmap .maplinks{margin-top:12px}

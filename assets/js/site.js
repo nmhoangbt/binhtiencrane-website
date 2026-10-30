@@ -91,3 +91,11 @@
     });
   }
 })();
+
+/* language menu: close when clicking outside or pressing Escape */
+(function () {
+  var d = document.querySelector("details.lang");
+  if (!d) return;
+  document.addEventListener("click", function (ev) { if (d.open && !d.contains(ev.target)) d.open = false; });
+  document.addEventListener("keydown", function (ev) { if (ev.key === "Escape" && d.open) { d.open = false; d.querySelector("summary").focus(); } });
+})();

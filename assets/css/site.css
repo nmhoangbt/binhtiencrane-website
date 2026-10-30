@@ -39,9 +39,20 @@ p{margin:0}
 .topbar .ti{display:flex;align-items:center;gap:7px;white-space:nowrap}
 .topbar svg{width:15px;height:15px;color:var(--red);flex:none}
 .topbar .sp{flex:1}
-.lang{display:flex;gap:2px;border:1px solid var(--steel-700);border-radius:var(--radius);padding:2px}
-.lang a,.lang span{padding:3px 9px;border-radius:2px;font-weight:600;font-size:12.5px;letter-spacing:.06em}
-.lang span{background:var(--red);color:#fff}
+.topbar .ti{min-width:0}
+.lang{position:relative;flex:none}
+.lang summary{list-style:none;display:flex;align-items:center;gap:6px;cursor:pointer;padding:4px 8px 4px 9px;border:1px solid var(--steel-700);border-radius:var(--radius);color:#fff;font-size:12.5px;letter-spacing:.06em;user-select:none}
+.lang summary::-webkit-details-marker{display:none}
+.lang summary:hover,.lang[open] summary{border-color:var(--red)}
+.lang summary b{font-weight:600}
+.lang summary .chev{width:13px;height:13px;color:#C9D0DA;transition:transform .15s}
+.lang[open] summary .chev{transform:rotate(180deg)}
+.lang ul{position:absolute;right:0;top:calc(100% + 6px);z-index:1200;list-style:none;margin:0;padding:6px;min-width:176px;background:#fff;border-radius:var(--radius);box-shadow:0 12px 32px rgba(10,16,24,.22)}
+.lang li a{display:flex;align-items:center;gap:12px;padding:9px 10px;border-radius:2px;color:var(--ink);font-size:14.5px;text-decoration:none}
+.lang li a b{width:24px;font-size:12px;letter-spacing:.06em;color:var(--steel-500)}
+.lang li a:hover{background:var(--red-tint)}
+.lang li a[aria-current]{background:var(--red);color:#fff}.lang li a[aria-current] b{color:#fff}
+.ftr .bottom .langs a{color:inherit}.ftr .bottom .langs a:hover{color:#fff}.ftr .bottom .langs span{color:#fff}
 .hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:var(--paper);border-bottom:1px solid var(--steel-200)}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:50;background:var(--paper)}
 .hdr .wrap{display:flex;align-items:center;gap:28px;min-height:78px}
@@ -422,3 +433,14 @@ table.org td:first-child{white-space:nowrap}
 .locmap>p{color:var(--steel-700);margin-bottom:12px}
 .locmap .maplinks{margin-top:12px}
 .locmap>p svg{width:15px;height:15px;vertical-align:-2px;color:var(--red)}
+
+/* topbar: hide long items first so the language menu always stays on screen */
+@media (max-width:1320px){.topbar .hide-l{display:none}}
+/* Korean, Chinese, Japanese: system CJK fonts behind the Latin faces */
+:root:lang(ko){--display:"Barlow Condensed","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;--body:"Be Vietnam Pro","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif}
+:root:lang(zh-Hans){--display:"Barlow Condensed","PingFang SC","Microsoft YaHei","Noto Sans SC","Source Han Sans SC",sans-serif;--body:"Be Vietnam Pro","PingFang SC","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif}
+:root:lang(ja){--display:"Barlow Condensed","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo","Noto Sans JP",sans-serif;--body:"Be Vietnam Pro","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo","Noto Sans JP",system-ui,sans-serif}
+:root:lang(ko) body{word-break:keep-all;overflow-wrap:anywhere}
+:root:lang(zh-Hans) body,:root:lang(ja) body{line-break:strict;overflow-wrap:anywhere}
+:root:lang(ko) h1,:root:lang(ko) h2,:root:lang(ko) h3,:root:lang(zh-Hans) h1,:root:lang(zh-Hans) h2,:root:lang(zh-Hans) h3,:root:lang(ja) h1,:root:lang(ja) h2,:root:lang(ja) h3{line-height:1.25;letter-spacing:0}
+:root:lang(ko) .hero h1,:root:lang(zh-Hans) .hero h1,:root:lang(ja) .hero h1{font-size:clamp(34px,5vw,60px);max-width:14em}
